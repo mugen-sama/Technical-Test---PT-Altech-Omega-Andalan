@@ -16,7 +16,7 @@ install pytest-html = pip install pytest-html
 How to run : 
 cd .\technical_test\Tests -> change to Tests directory
 
-pytest test_login_feature.py --html=hasil_test_login.html
+pytest test_login.py --html=hasil_test_login.html
 pytest test_checkout.py --html=hasil_test_checkout.html
 pytest -m login --html=hasil_test_negative.html
 pytest -m markerName

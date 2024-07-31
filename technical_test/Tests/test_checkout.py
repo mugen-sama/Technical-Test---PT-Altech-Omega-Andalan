@@ -24,10 +24,11 @@ class TestCheckout:
         # Initialize ChromeOptions and set desired options
         chrome_options = Options()
         chrome_options.add_argument('--headless') 
-        chrome_driver_path = ChromeDriverManager().install()
-        # Initialize the Chrome WebDriver with Service and Options
-        service = Service(chrome_driver_path)
-        driver = webdriver.Chrome(service=service, options=chrome_options)
+        # Path to your ChromeDriver executable
+        chromedriver_path ='D:\WORK\Training\Technical Test - PT Altech Omega Andalan\chromedriver-win64\chromedriver-win64\chromedriver.exe'
+        # Set up the ChromeDriver service
+        service = Service(chromedriver_path)
+        driver = webdriver.Chrome(service=service)
         # Open Browser
         driver = webdriver.Chrome()
         driver.maximize_window()

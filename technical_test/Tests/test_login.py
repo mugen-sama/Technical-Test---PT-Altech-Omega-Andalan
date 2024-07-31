@@ -14,18 +14,25 @@ class TestLogin:
     @pytest.mark.positive_login
     def test_positive_login(self):
         # Initialize ChromeOptions and set desired options
-        chrome_options = Options()
-        chrome_options.add_argument('--headless')  # Example: Run Chrome in headless mode
+        # chrome_options = Options()
+        # chrome_options.add_argument('--headless')  # Example: Run Chrome in headless mode
 
         # Get the path to the ChromeDriver executable
-        chrome_driver_path = ChromeDriverManager().install()
+        # chrome_driver_path = ChromeDriverManager().install()
 
         # Initialize the Chrome WebDriver with Service and Options
-        service = Service(chrome_driver_path)
-        driver = webdriver.Chrome(service=service, options=chrome_options)
+        # service = Service(chrome_driver_path)
+        # driver = webdriver.Chrome(service=service, options=chrome_options)
+
+        # Path to your ChromeDriver executable
+        chromedriver_path ='D:\WORK\Training\Technical Test - PT Altech Omega Andalan\chromedriver-win64\chromedriver-win64\chromedriver.exe'
+
+        # Set up the ChromeDriver service
+        service = Service(chromedriver_path)
+        driver = webdriver.Chrome(service=service)
 
         #Open Browser
-        driver = webdriver.Chrome()
+        # driver = webdriver.Chrome()
 
         # Now you can use the 'driver' instance to interact with your web application
         driver.get(user_data.URL)
@@ -61,12 +68,12 @@ class TestLogin:
         chrome_options = Options()
         chrome_options.add_argument('--headless')  # Example: Run Chrome in headless mode
 
-        # Get the path to the ChromeDriver executable
-        chrome_driver_path = ChromeDriverManager().install()
+       # Path to your ChromeDriver executable
+        chromedriver_path ='D:\WORK\Training\Technical Test - PT Altech Omega Andalan\chromedriver-win64\chromedriver-win64\chromedriver.exe'
 
-        # Initialize the Chrome WebDriver with Service and Options
-        service = Service(chrome_driver_path)
-        driver = webdriver.Chrome(service=service, options=chrome_options)
+        # Set up the ChromeDriver service
+        service = Service(chromedriver_path)
+        driver = webdriver.Chrome(service=service)
 
         #Open Browser
         driver = webdriver.Chrome()
