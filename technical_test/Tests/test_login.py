@@ -7,10 +7,10 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
-
+@pytest.mark.login
 class TestLogin:
 
-    @pytest.mark.login
+    # @pytest.mark.login
     @pytest.mark.positive_login
     def test_positive_login(self):
         # Initialize ChromeOptions and set desired options
@@ -25,7 +25,7 @@ class TestLogin:
         # driver = webdriver.Chrome(service=service, options=chrome_options)
 
         # Path to your ChromeDriver executable
-        chromedriver_path ='D:\WORK\Training\Technical Test - PT Altech Omega Andalan\chromedriver-win64\chromedriver-win64\chromedriver.exe'
+        chromedriver_path = r'D:\WORK\Training\Technical Test - PT Altech Omega Andalan\chromedriver-win64\chromedriver-win64\chromedriver.exe'
 
         # Set up the ChromeDriver service
         service = Service(chromedriver_path)
@@ -61,15 +61,15 @@ class TestLogin:
         # Close the browser
         driver.quit()
 
-    @pytest.mark.login
+    # @pytest.mark.login
     @pytest.mark.negative_login
-    def test_positive_login(self):
+    def test_negative_login(self):
         # Initialize ChromeOptions and set desired options
         chrome_options = Options()
         chrome_options.add_argument('--headless')  # Example: Run Chrome in headless mode
 
        # Path to your ChromeDriver executable
-        chromedriver_path ='D:\WORK\Training\Technical Test - PT Altech Omega Andalan\chromedriver-win64\chromedriver-win64\chromedriver.exe'
+        chromedriver_path = r'D:\WORK\Training\Technical Test - PT Altech Omega Andalan\chromedriver-win64\chromedriver-win64\chromedriver.exe'
 
         # Set up the ChromeDriver service
         service = Service(chromedriver_path)

@@ -11,10 +11,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 
-
+@pytest.mark.checkout
 class TestCheckout:
 
-    @pytest.mark.checkout
+    
     def test_checkout(self):
 
         ######################################################################################################################
@@ -25,7 +25,7 @@ class TestCheckout:
         chrome_options = Options()
         chrome_options.add_argument('--headless') 
         # Path to your ChromeDriver executable
-        chromedriver_path ='D:\WORK\Training\Technical Test - PT Altech Omega Andalan\chromedriver-win64\chromedriver-win64\chromedriver.exe'
+        chromedriver_path = r'D:\WORK\Training\Technical Test - PT Altech Omega Andalan\chromedriver-win64\chromedriver-win64\chromedriver.exe'
         # Set up the ChromeDriver service
         service = Service(chromedriver_path)
         driver = webdriver.Chrome(service=service)
