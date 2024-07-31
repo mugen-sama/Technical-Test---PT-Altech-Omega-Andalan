@@ -14,7 +14,10 @@ install webdriver-manager = pip install webdriver-manager
 install pytest-html = pip install pytest-html
 
 How to run : 
-cd .\technical_test\Tests -> change to Tests directory
+Run langsung dari ROOT di folder D:\WORK\Training\Technical Test - PT Altech Omega Andalan tanpa perlu masuk ke dalam folder \Tests
+-> Run with markerName :
+pytest -m checkout .\technical_test\Tests
+pytest -m login .\technical_test\Tests
 
 pytest test_login.py --html=hasil_test_login.html
 pytest test_checkout.py --html=hasil_test_checkout.html

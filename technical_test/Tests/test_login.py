@@ -1,5 +1,6 @@
 import Data.user_data as user_data
 import pytest
+import os
 
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
@@ -25,7 +26,13 @@ class TestLogin:
         # driver = webdriver.Chrome(service=service, options=chrome_options)
 
         # Path to your ChromeDriver executable
-        chromedriver_path = r'D:\WORK\Training\Technical Test - PT Altech Omega Andalan\chromedriver-win64\chromedriver-win64\chromedriver.exe'
+        # chromedriver_path = r'D:\WORK\Training\Technical Test - PT Altech Omega Andalan\chromedriver-win64\chromedriver-win64\chromedriver.exe'
+
+        # Set up the ChromeDriver service
+        current_dir = os.getcwd()
+        # print(current_dir)
+        chromedriver_path = os.path.join(current_dir,'chromedriver-win64', 'chromedriver.exe')
+        # print(chromedriver_path)
 
         # Set up the ChromeDriver service
         service = Service(chromedriver_path)
@@ -69,8 +76,12 @@ class TestLogin:
         chrome_options.add_argument('--headless')  # Example: Run Chrome in headless mode
 
        # Path to your ChromeDriver executable
-        chromedriver_path = r'D:\WORK\Training\Technical Test - PT Altech Omega Andalan\chromedriver-win64\chromedriver-win64\chromedriver.exe'
-
+        # chromedriver_path = r'D:\WORK\Training\Technical Test - PT Altech Omega Andalan\chromedriver-win64\chromedriver-win64\chromedriver.exe'
+        # Set up the ChromeDriver service
+        current_dir = os.getcwd()
+        # print(current_dir)
+        chromedriver_path = os.path.join(current_dir,'chromedriver-win64', 'chromedriver.exe')
+        # print(chromedriver_path)
         # Set up the ChromeDriver service
         service = Service(chromedriver_path)
         driver = webdriver.Chrome(service=service)
