@@ -8,6 +8,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
+
 @pytest.mark.login
 class TestLogin:
 
@@ -15,8 +16,8 @@ class TestLogin:
     @pytest.mark.positive_login
     def test_positive_login(self):
         # Initialize ChromeOptions and set desired options
-        # chrome_options = Options()
-        # chrome_options.add_argument('--headless')  # Example: Run Chrome in headless mode
+        chrome_options = Options()
+        chrome_options.add_argument('--headless')  # Example: Run Chrome in headless mode
 
         # Get the path to the ChromeDriver executable
         # chrome_driver_path = ChromeDriverManager().install()
@@ -36,7 +37,7 @@ class TestLogin:
 
         # Set up the ChromeDriver service
         service = Service(chromedriver_path)
-        driver = webdriver.Chrome(service=service)
+        driver = webdriver.Chrome(service=service, options=chrome_options)
 
         #Open Browser
         # driver = webdriver.Chrome()
@@ -68,14 +69,14 @@ class TestLogin:
         # Close the browser
         driver.quit()
 
-    # @pytest.mark.login
+    @pytest.mark.login
     @pytest.mark.negative_login
     def test_negative_login(self):
         # Initialize ChromeOptions and set desired options
         chrome_options = Options()
         chrome_options.add_argument('--headless')  # Example: Run Chrome in headless mode
 
-       # Path to your ChromeDriver executable
+        # Path to your ChromeDriver executable
         # chromedriver_path = r'D:\WORK\Training\Technical Test - PT Altech Omega Andalan\chromedriver-win64\chromedriver-win64\chromedriver.exe'
         # Set up the ChromeDriver service
         current_dir = os.getcwd()
@@ -84,10 +85,10 @@ class TestLogin:
         # print(chromedriver_path)
         # Set up the ChromeDriver service
         service = Service(chromedriver_path)
-        driver = webdriver.Chrome(service=service)
+        driver = webdriver.Chrome(service=service, options=chrome_options)
 
         #Open Browser
-        driver = webdriver.Chrome()
+        # driver = webdriver.Chrome()
         driver.maximize_window()
 
         # Now you can use the 'driver' instance to interact with your web application

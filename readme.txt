@@ -1,7 +1,6 @@
 #e2e checkout using selenium webdriver python
 
 Install :
-
 install Python 
 install pip = py -m pip install --upgrade pip
 test file is under Tests Folder, so run virtual environment first
@@ -18,9 +17,19 @@ Run langsung dari ROOT di folder D:\WORK\Training\Technical Test - PT Altech Ome
 -> Run with markerName :
 pytest -m checkout .\technical_test\Tests
 pytest -m login .\technical_test\Tests
-
+untuk report tambahkan --html=report_name.html di akhir
+-> Run without markerName:
 pytest test_login.py --html=hasil_test_login.html
 pytest test_checkout.py --html=hasil_test_checkout.html
-pytest -m login --html=hasil_test_negative.html
-pytest -m markerName
+
+
+#DOCKER
+-> BUILD
+docker build -t myname:version .
+-> Check Image
+docker images
+docker image ls 
+-> RUN 
+docker run -it imagename bash
+
 
