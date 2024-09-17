@@ -35,7 +35,7 @@ RUN CHROME_DRIVER_VERSION=128.0.6613.119 && \
 
 # Set environment variables for Chrome
 ENV CHROME_BIN=/usr/bin/chromium \
-    CHROME_DRIVER=/usr/local/bin/chromedriver \
+    CHROME_DRIVER=/usr/local/bin/chromedriver-linux64 \
     DISPLAY=:99
 
 # 6. Set environment variable PYTHONPATH

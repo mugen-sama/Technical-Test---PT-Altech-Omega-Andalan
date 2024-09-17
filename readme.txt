@@ -24,6 +24,7 @@ pytest test_checkout.py --html=hasil_test_checkout.html
 
 
 #DOCKER
+-> create Doclerfile
 -> BUILD
 docker build -t myname:version .
 -> Check Image
