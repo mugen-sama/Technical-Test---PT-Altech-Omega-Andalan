@@ -32,5 +32,10 @@ docker images
 docker image ls 
 -> RUN 
 docker run -it imagename bash
+-> PUSH to DOCKER hub
+1. Tag Your Docker Image
+docker tag [local-image-name]:[tag] [username]/[repository-name]:[tag]
+2. Push the Image to Docker Hub
+Push the Image to Docker Hub
 
 

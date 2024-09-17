@@ -10,11 +10,12 @@ COPY . /app
 # 4. Install any necessary dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 5. Install necessary dependencies for Chrome
+# 5. Install necessary dependencies for Chrome and Xvfb
 RUN apt-get update && apt-get install -y \
     bash \
     curl \
     chromium \
+    xvfb \
     fonts-liberation \
     libappindicator3-1 \
     libnss3 \
@@ -26,20 +27,21 @@ RUN apt-get update && apt-get install -y \
     dbus-x11 \
     && rm -rf /var/lib/apt/lists/*
 
-# Install specific ChromeDriver version
+# 6. Install specific ChromeDriver version
 RUN CHROME_DRIVER_VERSION=128.0.6613.119 && \
     curl -sSLO "https://storage.googleapis.com/chrome-for-testing-public/128.0.6613.119/linux64/chromedriver-linux64.zip" && \
     unzip chromedriver-linux64.zip -d /usr/local/bin/ && \
-    chmod +x /usr/local/bin/chromedriver-linux64 && \
+    mv /usr/local/bin/chromedriver-linux64 /usr/local/bin/chromedriver && \
+    chmod +x /usr/local/bin/chromedriver && \
     rm chromedriver-linux64.zip
 
-# Set environment variables for Chrome
+# 7. Set environment variables for Chrome
 ENV CHROME_BIN=/usr/bin/chromium \
-    CHROME_DRIVER=/usr/local/bin/chromedriver-linux64 \
+    CHROME_DRIVER=/usr/local/bin/chromedriver \
     DISPLAY=:99
 
-# 6. Set environment variable PYTHONPATH
+# 8. Set environment variable PYTHONPATH
 ENV PYTHONPATH="${PYTHONPATH}:/app"
 
-# 7. Specify the command to run your app
-CMD ["pytest", "-m", "positive_login", "./Tests"]
+# 9. Specify the command to run your app using xvfb-run
+CMD ["xvfb-run", "pytest", "-m", "positive_login", "./Tests"]
