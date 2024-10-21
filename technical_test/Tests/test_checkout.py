@@ -25,19 +25,27 @@ class TestCheckout:
         # Initialize ChromeOptions and set desired options
         chrome_options = Options()
         chrome_options.add_argument('--headless') 
-        # Path to your ChromeDriver executable
+        chrome_options.add_argument('--no-sandbox')  # Required for some Linux environments
+        chrome_options.add_argument('--disable-dev-shm-usage')  # Overcome limited /dev/shm space issues
+
+        # # Path to your ChromeDriver executable
         
-        # chromedriver_path = r'D:\WORK\Training\Technical Test - PT Altech Omega Andalan\chromedriver-win64\chromedriver-win64\chromedriver.exe'
-        # print(chromedriver_path)
-        current_dir = os.getcwd()
-        # print(current_dir)
-        chromedriver_path = os.path.join(current_dir,'chromedriver-win64', 'chromedriver.exe')
-        # print(chromedriver_path)
-        # Set up the ChromeDriver service
-        service = Service(chromedriver_path)
-        driver = webdriver.Chrome(service=service)
-        # Open Browser
-        driver = webdriver.Chrome()
+        # # chromedriver_path = r'D:\WORK\Training\Technical Test - PT Altech Omega Andalan\chromedriver-win64\chromedriver-win64\chromedriver.exe'
+        # # print(chromedriver_path)
+        # current_dir = os.getcwd()
+        # # print(current_dir)
+        # chromedriver_path = os.path.join(current_dir,'chromedriver-win64', 'chromedriver.exe')
+        # # print(chromedriver_path)
+        # # Set up the ChromeDriver service
+        # service = Service(chromedriver_path)
+        # driver = webdriver.Chrome(service=service)
+        # # Open Browser
+        # driver = webdriver.Chrome()
+
+        # Use WebDriver Manager to manage the ChromeDriver version
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager(driver_version="128.0.6613.119").install()), options=chrome_options)
+
+
         driver.maximize_window()
         driver.get(user_data.URL)
         driver.implicitly_wait(user_data.implicit_wait_time)
